@@ -9,7 +9,7 @@ connectDB();
 
 app.use(cors(
     {
-        origin: ["http://localhost:3000", "https://your-production-url.com"],
+        origin: ["https://shopitnowapp.netlify.app"],
         methods: ["GET", "POST", "PUT", "DELETE"],
         credentials: true,
     }
