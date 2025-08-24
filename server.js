@@ -7,13 +7,14 @@ const path = require("path");
 const app = express();
 connectDB();
 
-app.use(cors(
-    {
-        origin: ["https://shopitnowapp.netlify.app"],
-        methods: ["GET", "POST", "PUT", "DELETE"],
-        credentials: true,
-    }
-));
+app.use(
+  cors({
+    // origin: ["https://shopitnowapp.netlify.app"],
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 // app.use((req, res, next) => {
 //   if (!req.headers.authorization) {
 //     return res.status(401).json({ error: "Unauthorized" });
@@ -21,7 +22,6 @@ app.use(cors(
 //   next();
 // });
 app.use(express.json());
-
 
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/products", require("./routes/products"));
@@ -49,6 +49,7 @@ app.delete("/api/products/:id", async (req, res) => {
   res.json({ success: true });
 });
 
-
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+app.listen(PORT, () =>
+  console.log(`Server running on http://localhost:${PORT}`)
+);
