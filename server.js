@@ -9,8 +9,8 @@ connectDB();
 
 app.use(
   cors({
-    // origin: ["https://shopitnowapp.netlify.app"],
-    origin: "*",
+    origin: ["https://shopitnowapp.netlify.app"],
+    // origin: "*",
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
