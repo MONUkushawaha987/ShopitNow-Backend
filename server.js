@@ -29,27 +29,27 @@ app.use("/api/products", require("./routes/products"));
 // simple health
 app.get("/api/health", (req, res) => res.json({ status: "ok" }));
 
-app.post("/api/products", async (req, res) => {
-  const product = new Product(req.body);
-  await product.save();
-  res.json(product);
-});
+// app.post("/api/products", async (req, res) => {
+//   const product = new Product(req.body);
+//   await product.save();
+//   res.json(product);
+// });
 
-// Update product
-app.put("/api/products/:id", async (req, res) => {
-  const product = await Product.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-  });
-  res.json(product);
-});
+// // Update product
+// app.put("/api/products/:id", async (req, res) => {
+//   const product = await Product.findByIdAndUpdate(req.params.id, req.body, {
+//     new: true,
+//   });
+//   res.json(product);
+// });
 
-// Delete product
-app.delete("/api/products/:id", async (req, res) => {
-  await Product.findByIdAndDelete(req.params.id);
-  res.json({ success: true });
-});
+// // Delete product
+// app.delete("/api/products/:id", async (req, res) => {
+//   await Product.findByIdAndDelete(req.params.id);
+//   res.json({ success: true });
+// });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT ;
 app.listen(PORT, () =>
   console.log(`Server running on http://localhost:${PORT}`)
 );
