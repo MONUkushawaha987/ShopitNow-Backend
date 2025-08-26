@@ -49,7 +49,7 @@ app.get("/api/health", (req, res) => res.json({ status: "ok" }));
 //   res.json({ success: true });
 // });
 
-const PORT = process.env.PORT ;
+const PORT = process.env.PORT;
 app.listen(PORT, () =>
   console.log(`Server running on http://localhost:${PORT}`)
 );
